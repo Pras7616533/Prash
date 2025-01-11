@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Themed Website</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f0f0f0;
+            --text-color: #333;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #1abc9c;
+            --secondary-color: #e74c3c;
+            --background-color: #2c3e50;
+            --text-color: #ecf0f1;
+        }
+
+        [data-theme="solarized"] {
+            --primary-color: #b58900;
+            --secondary-color: #268bd2;
+            --background-color: #fdf6e3;
+            --text-color: #657b83;
+        }
+
+        [data-theme="pastel"] {
+            --primary-color: #ffcbf2;
+            --secondary-color: #a0c4ff;
+            --background-color: #fef6e4;
+            --text-color: #333;
+        }
+
+        [data-theme="high-contrast"] {
+            --primary-color: #000000;
+            --secondary-color: #ffcc00;
+            --background-color: #ffffff;
+            --text-color: #000000;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .theme-selector {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .theme-selector select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .theme-selector {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Themed Website</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>Welcome to Our Website!</h2>
+        <p>This is a simple responsive website with multiple color themes. Use the dropdown below to switch themes.</p>
+        <div class="theme-selector">
+            <select onchange="changeTheme(this.value)">
+                <option value="">Default Theme</option>
+                <option value="dark">Dark Theme</option>
+                <option value="solarized">Solarized Theme</option>
+                <option value="pastel">Pastel Theme</option>
+                <option value="high-contrast">High Contrast Theme</option>
+            </select>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025. All rights reserved.</p>
+    </footer>
+    <script>
+        function changeTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    </script>
+</body>
+</html>
